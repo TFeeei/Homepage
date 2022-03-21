@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- [if lt IE 9]>
+	  <script src="https://fastly.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+	  <script src="https://fastly.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="./js/flexible.js"></script>
+    <script src="./js/index.js"></script>
+    <title>構築中です！</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="shutter">
+            <img class="ball" src="./images/ball.png" alt="ボール">
+        </div>
+    </div>
+
+    <div class="container" id="main-content">
+
+
+        <div class="row">
+
+            <div class="menu hidden-lg hidden-md" id="menu">
+                <img src="./images/menu.png" alt="menu">
+            </div>
+
+            <header class="aside-left col-md-1">
+                <div>
+                    <p id="teamwork">TEAMWORK</p>
+                    <p id="portfolio">PORTFOLIO</p>
+                </div>
+            </header>
+
+
+            <div class="main col-md-7" id="main">
+                <img src="./images/girl.png" alt="">
+            </div>
+
+
+            <div class="nav col-md-4">
+
+
+                <ul class="hidden-sm hidden-xs">
+                    <li>
+                        <a href="./html/about us.html" class="nav-content">
+                            ABOUT US
+                            <span class="line"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="blog" class="nav-content">
+                            BLOG
+                            <span class="line"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="works" class="nav-content">
+                            WORKS
+                            <span class="line"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="contact" class="nav-content">
+                            CONTACT
+                            <span class="line"></span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="container">
+        <div class="menu-nav hidden-lg hidden-md" id="menu-nav">
+
+            <ul>
+                <li>
+                    <p>Menu</p>
+                </li>
+                <li><a href="./html/about us.html" id="about">ABOUT US</a></li>
+                <li><a href="#" id="blog">BLOG</a></li>
+                <li><a href="#" id="works">WORKS</a></li>
+                <li><a href="#" id="contact">CONTACT</a></li>
+                <li>
+                    <p id="back">Back</p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <script>
+        var oBlog = document.getElementById("blog");
+        oBlog.onclick = function () {
+            alert("構築中.....");
+        }
+
+        var oWorks = document.getElementById("works");
+        oWorks.onclick = function () {
+            alert("構築中.....");
+        }
+
+        var oContact = document.getElementById("contact");
+        oContact.onclick = function () {
+            alert("構築中.....");
+        }
+
+
+        var oMenu = document.getElementById("menu");
+        var oMainContent = document.getElementById("main-content");
+        var oMenuNav = document.getElementById("menu-nav")
+
+        var flag = true; // メニューナビ開いていない状態
+        oMenu.onclick = function () {
+            if (flag == true) {
+                oMenuNav.style.visibility = "visible";
+                oMainContent.classList.add("blur");
+                flag = false;
+            } else {
+                hiddenBlur();
+            }
+        }
+
+        function hiddenBlur() {
+
+            oMenuNav.style.visibility = "hidden";
+            oMainContent.classList.remove("blur");
+            flag = true;
+        }
+
+        var oBack = document.getElementById("back")
+        oBack.onclick = function () {
+            if (flag == false) {
+                hiddenBlur()
+            }
+        }
+
+
+        // 鼠标移入移出 动画
+        var oNavContents = document.getElementsByClassName('nav-content');
+        var oLines = document.getElementsByClassName('line');
+
+        oNavContents[0].onmouseover = function () {
+
+            linearMove(oLines[0], 'width', 10, 140)
+        }
+
+        oNavContents[1].onmouseover = function () {
+
+            linearMove(oLines[1], 'width', 10, 70)
+        }
+
+        oNavContents[2].onmouseover = function () {
+
+            linearMove(oLines[2], 'width', 10, 87.5)
+        }
+
+        oNavContents[3].onmouseover = function () {
+
+            linearMove(oLines[3], 'width', 10, 122.5)
+        }
+
+        for (let i = 0; i < oNavContents.length; i++) {
+            oNavContents[i].onmouseout = function () {
+                linearMove(oLines[i], 'width', -10, 0)
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

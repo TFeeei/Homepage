@@ -1,0 +1,344 @@
+@import "./base.less";
+@import "./normalize.less";
+
+@pc-size: 120rem;
+@root-size: 64rem;
+
+
+@media screen and (min-width:1200px) {
+    .container {
+        width: 1200px;
+
+    }
+}
+
+//動画
+.shutter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: white;
+    z-index: 50;
+
+    animation: close-shutter 3s forwards;
+
+    .ball{
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        opacity: 0;
+
+        animation: loading 1.5s linear;
+    }
+
+
+}
+
+
+
+
+
+
+@keyframes close-shutter {
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+        z-index: -1;
+    }
+}
+
+
+@keyframes loading {
+    0% {
+        opacity: 1;
+    }
+
+    // ボールが落ちる
+    25% {
+        opacity: 1;
+        transform: translateY(600px) rotate(-45deg);
+    }
+
+    // ←↑
+    40% {
+        opacity: 1;
+        transform: translateY(400px) translateX(-200px);
+    }
+
+    // ←↓
+    60% {
+        opacity: 1;
+        transform: translateY(600px) translateX(-400px) rotate(-45deg);
+    }
+
+    // ←↑
+    75% {
+        opacity: 1;
+        transform: translateY(500px) translateX(-600px);
+    }
+
+    // ←↓
+    95% {
+        opacity: 1;
+        transform: translateY(600px) translateX(-850px) rotate(-45deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(600px) translateX(-850px);
+    }
+
+}
+
+
+//　内容
+
+header {
+    margin-top: 478px;
+
+    z-index: 1;
+
+    #teamwork {
+        padding-left: 140px;
+        height: 40px;
+        font-size: 43px;
+        font-family: "HG教科書体";
+        letter-spacing: 10px;
+    }
+
+    #portfolio {
+        padding-left: 128px;
+        font-size: 100px;
+        font-family: "Perpetua Titling MT";
+        letter-spacing: 5px;
+
+    }
+
+}
+
+.main {
+    padding-left: 300px;
+
+    img {
+        max-width: 600px;
+        max-height: 700px;
+        margin: 130px auto;
+    }
+}
+
+
+.nav {
+    margin-top: 130px;
+    padding: 0;
+}
+
+ul {
+    height: 611px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    text-align: center;
+
+
+    a {
+        color: black;
+        text-decoration: none;
+        font-size: 35px;
+        font-family: "UD デジタル 教科書体 N-R";
+        position: relative;
+
+        .line{
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background-color: #1f2a6f;
+            border-radius: 30px;
+        }
+    }
+
+    a:hover {
+        text-decoration: none;
+        background-color: #fff;
+        color: rgb(52, 70, 82);
+    }
+
+}
+
+
+
+.blur {
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // margin: auto;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    z-index: 15;
+
+
+}
+
+
+
+
+@media screen and (max-width:1199px) {
+
+    p {
+        padding: 0 !important;
+    }
+
+    .main {
+        padding-left: 130px;
+    }
+
+}
+
+
+@media screen and (max-width:991px) {
+
+    header {
+        margin-top: 120px;
+        padding-left: (80/@pc-size) !important;
+
+
+        #teamwork {
+            margin-bottom: (43/@pc-size);
+            letter-spacing: (10/@pc-size);
+        }
+
+        #portfolio {
+            font-size: (100/@pc-size);
+        }
+    }
+
+    .main {
+        margin: 0;
+        padding: 0;
+
+        img {
+            display: block;
+            margin: (43/@pc-size) auto;
+        }
+    }
+
+    .menu {
+        position: absolute;
+        margin: 0;
+        top: 50px;
+        right: 130px;
+        cursor:pointer;
+    }
+
+    .menu-nav {
+        visibility: hidden;
+        width: 208px;
+        padding: 0 30px;
+        background-color: white;
+        border: 1px solid #676767;
+        border-radius: 20px;
+        z-index: 20;
+
+        position: absolute;
+        top:240px;
+        right: 130px;
+    
+        ul {
+            height: 465px;
+            justify-content: space-around;
+    
+            li:nth-child(1) {
+                text-align: left;
+            }
+    
+            li:nth-child(6) {
+                text-align: right;
+            }
+    
+            a,
+            p {
+                color: #1f2a6f;
+                cursor:pointer;
+            }
+    
+        }
+    
+    
+    }
+}
+
+
+
+@media screen and (max-width:640px) {
+    header {
+        margin-top: (235/@root-size);
+        margin-bottom: (100/@root-size);
+        padding-left: (40/@root-size) !important;
+
+
+
+        #teamwork {
+            margin-bottom: (40/@root-size);
+            font-size: (54/@root-size);
+        }
+
+        #portfolio {
+            font-size: (70/@root-size);
+
+        }
+
+    }
+
+    .main {
+        img {
+            margin-left: (100/@root-size);
+            width: (500/@root-size);
+            height: (600/@root-size);
+        }
+    }
+
+    .menu {
+        top: (122/@root-size);
+        right: (75/@root-size);
+
+        img {
+            width: (126/@root-size);
+            height: (126/@root-size);
+        }
+    }
+
+
+
+
+    .menu-nav {
+        width: (208/@root-size);
+        padding: 0 (30/@root-size);
+
+        top:(240/@root-size);
+        right:(54/@root-size);
+
+        ul {
+            height: (465/@root-size);
+            a{
+                font-size: (35/@root-size);
+            }
+            p{
+                font-size: (24/@root-size);
+            }
+        }
+    }
+}
